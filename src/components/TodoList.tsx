@@ -11,7 +11,7 @@ interface State {
   title: string;
 }
 
-export default class TodoList extends React.Component<Props, State> {
+export class TodoList extends React.Component<Props, State> {
   public state: State = {
     title: ''
   };
@@ -19,6 +19,10 @@ export default class TodoList extends React.Component<Props, State> {
   private input: HTMLInputElement | null = null;
 
   public componentDidMount() {
+    this.focus();
+  }
+
+  public focus() {
     if (this.input) {
       this.input.focus();
     }

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Todo } from '../types';
-import TodoList from '../components/TodoList';
+import { ControlPanel } from '../components/ControlPanel';
+import { TodoList } from '../components/TodoList';
 import { fetchTodos } from '../apis';
 
 interface Props {}
@@ -14,6 +15,8 @@ export class TodosContainer extends React.Component<Props, State> {
     todos: []
   };
 
+  private todoList: TodoList | null = null;
+
   public async componentDidMount() {
     try {
       const { data } = await fetchTodos();
@@ -26,7 +29,16 @@ export class TodosContainer extends React.Component<Props, State> {
   public render() {
     const { todos } = this.state;
 
-    return <TodoList todos={todos} onAddTodo={this.handleAddTodo} />;
+    return (
+      <React.Fragment>
+        <TodoList
+          todos={todos}
+          onAddTodo={this.handleAddTodo}
+          ref={todoList => (this.todoList = todoList)}
+        />
+        <ControlPanel onClick={this.handleClickFocusButton} />
+      </React.Fragment>
+    );
   }
 
   private handleAddTodo = (title: string) => {
@@ -47,4 +59,10 @@ export class TodosContainer extends React.Component<Props, State> {
       userId: Math.floor(Math.random() * 1000000)
     };
   }
+
+  private handleClickFocusButton = () => {
+    if (this.todoList) {
+      this.todoList.focus();
+    }
+  };
 }
