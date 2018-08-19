@@ -61,8 +61,7 @@ export class TodosContainer extends React.Component<Props, State> {
     return {
       id: Math.floor(Math.random() * 1000000),
       title,
-      completed: false,
-      userId: Math.floor(Math.random() * 1000000)
+      completed: false
     };
   }
 
