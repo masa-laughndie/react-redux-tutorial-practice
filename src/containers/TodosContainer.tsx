@@ -14,14 +14,13 @@ export class TodosContainer extends React.Component<Props, State> {
     todos: []
   };
 
-  public componentDidMount() {
-    fetchTodos()
-      .then(({ data }) => {
-        this.setState({ todos: data });
-      })
-      .catch(error => {
-        alert(error);
-      });
+  public async componentDidMount() {
+    try {
+      const { data } = await fetchTodos();
+      this.setState({ todos: data });
+    } catch (error) {
+      alert(error);
+    }
   }
 
   public render() {
