@@ -5,5 +5,5 @@ interface Props {
 }
 
 export const ControlPanel = ({ onClick }: Props) => (
-  <button onClick={onClick}>Focus</button>;
+  <button onClick={onClick}>Focus</button>
 );
