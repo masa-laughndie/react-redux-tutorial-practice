@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Todo } from '../types';
+import { Todo } from '../types/CommonTypes';
 import { TodoItem } from './TodoItem';
 
 interface Props {

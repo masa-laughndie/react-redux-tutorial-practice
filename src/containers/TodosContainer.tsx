@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Todo } from '../types';
+import { Todo } from '../types/CommonTypes';
 import { ControlPanel } from '../components/ControlPanel';
 import { TodoList } from '../components/TodoList';
 import { addTodo, fetchTodos } from '../apis';
