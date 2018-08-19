@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Todo } from '../types';
 import TodoList from '../components/TodoList';
-import { fetchTodos } from '../apis/fetchTodos';
+import { fetchTodos } from '../apis';
 
 interface Props {}
 
