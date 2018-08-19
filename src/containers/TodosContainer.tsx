@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Todo } from '../types';
 import { ControlPanel } from '../components/ControlPanel';
 import { TodoList } from '../components/TodoList';
-import { fetchTodos } from '../apis';
+import { addTodo, fetchTodos } from '../apis';
 
 interface Props {}
 
@@ -47,23 +47,15 @@ export class TodosContainer extends React.Component<Props, State> {
     );
   }
 
-  private handleAddTodo = (title: string) => {
+  private handleAddTodo = async (title: string) => {
     const { todos } = this.state;
 
-    const newTodo: Todo = this.createTodo(title);
+    const newTodo = await addTodo(title);
 
     this.setState({
       todos: todos.concat(newTodo)
     });
   };
-
-  private createTodo(title: string) {
-    return {
-      id: Math.floor(Math.random() * 1000000),
-      title,
-      completed: false
-    };
-  }
 
   private handleClickFocusButton = () => {
     if (this.todoList) {
