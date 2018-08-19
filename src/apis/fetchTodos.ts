@@ -1,4 +1,3 @@
 import axios from 'axios';
 
-export const fetchTodos = () =>
-  axios.get('https://jsonplaceholder.typicode.com/todos?_limit=3');
+export const fetchTodos = () => axios.get('http://localhost:4000/todos');
