@@ -17,6 +17,19 @@ export const todosReducer: Reducer<TodosState, Action> = (
   action
 ) => {
   switch (action.type) {
+    case ActionTypes.FETCH_TODOS_SUCCESS:
+    case ActionTypes.FETCH_TODOS_FAILURE:
+      return {
+        ...state,
+        todos: [],
+        loading: true
+      };
+    case ActionTypes.FETCH_TODOS_SUCCESS:
+      return {
+        ...state,
+        todos: action.payload.todos,
+        loading: false
+      };
     case ActionTypes.ADD_TODO:
       /* TODO */
       return state;
