@@ -30,9 +30,12 @@ export const todosReducer: Reducer<TodosState, Action> = (
         todos: action.payload.todos,
         loading: false
       };
-    case ActionTypes.ADD_TODO:
+    case ActionTypes.ADD_TODO_SUCCESS:
       /* TODO */
-      return state;
+      return {
+        ...state,
+        todos: [...state.todos, action.payload.todo]
+      };
     case ActionTypes.TOGGLE_TODO:
       /* TODO */
       return state;
