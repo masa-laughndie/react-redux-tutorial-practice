@@ -34,6 +34,7 @@ export class TodoList extends React.Component<Props, State> {
 
     return (
       <React.Fragment>
+        {/* map は引数に各要素が自動で渡されるため、以下のように書ける */}
         <div>{todos.map(this.renderTodo)}</div>
         <div>
           <input
@@ -49,6 +50,7 @@ export class TodoList extends React.Component<Props, State> {
   }
 
   private renderTodo(todo: Todo) {
+    console.log('A: ', todo);
     return <TodoItem key={todo.id} {...todo} />;
   }
 
