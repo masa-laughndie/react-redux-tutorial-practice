@@ -17,7 +17,7 @@ export const todosReducer: Reducer<TodosState, Action> = (
   action
 ) => {
   switch (action.type) {
-    case ActionTypes.FETCH_TODOS_SUCCESS:
+    case ActionTypes.FETCH_TODOS_REQUEST:
     case ActionTypes.FETCH_TODOS_FAILURE:
       return {
         ...state,
