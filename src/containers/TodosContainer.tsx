@@ -1,12 +1,10 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators, Dispatch } from 'redux';
 import * as actions from '../actions';
 import { Todo } from '../types/CommonTypes';
 import { ControlPanel } from '../components/ControlPanel';
 import { TodoList } from '../components/TodoList';
 import { RootState } from '../reducers/rootReducer';
-import { Action } from '../types/ActionTypes';
 
 interface Props {
   todos: Todo[];
@@ -66,11 +64,9 @@ const mapStateToProps = (state: RootState) => {
   };
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<Action>) => {
-  return {
-    addTodo: bindActionCreators(actions.addTodo, dispatch),
-    fetchTodos: bindActionCreators(actions.fetchTodos, dispatch)
-  };
+const mapDispatchToProps = {
+  addTodo: actions.addTodo,
+  fetchTodos: actions.fetchTodos
 };
 
 export const TodosContainer = connect(
