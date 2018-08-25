@@ -4,6 +4,8 @@ interface Props {
   onClick: any;
 }
 
-export const ControlPanel = ({ onClick }: Props) => (
+const ControlPanel = ({ onClick }: Props) => (
   <button onClick={onClick}>Focus</button>
 );
+
+export default ControlPanel;

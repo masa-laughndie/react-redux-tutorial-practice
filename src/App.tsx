@@ -1,8 +1,15 @@
 import * as React from 'react';
 import { TodosContainer } from './containers/TodosContainer';
 
-export const App = () => (
-  <div>
+const divStyle = {
+  color: 'green',
+  margin: '20px'
+};
+
+const App = () => (
+  <div id="apps" style={divStyle}>
     <TodosContainer />
   </div>
 );
+
+export default App;

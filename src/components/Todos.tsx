@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Props, State } from '../containers/TodosContainer';
 import { TodoList } from './TodoList';
-import { ControlPanel } from './ControlPanel';
+import ControlPanel from './ControlPanel';
 
 export class Todos extends React.Component<Props, State> {
   private todoList: TodoList | null = null;

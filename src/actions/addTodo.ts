@@ -17,14 +17,14 @@ const addTodoFailure = (): Action => ({
 });
 
 export const addTodo = (title: string) => {
-  return async dispacth => {
-    dispacth(addTodoRequest(title));
+  return async dispatch => {
+    dispatch(addTodoRequest(title));
 
     try {
       const todo = await apis.addTodo(title);
-      dispacth(addTodoSuccess(todo));
+      dispatch(addTodoSuccess(todo));
     } catch (error) {
-      dispacth(addTodoFailure);
+      dispatch(addTodoFailure);
       alert(error);
     }
   };
