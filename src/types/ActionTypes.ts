@@ -15,6 +15,9 @@ export type Action =
   | { type: ActionTypes.ADD_TODO_SUCCESS; payload: { todo: Todo } }
   | { type: ActionTypes.ADD_TODO_FAILURE }
   | { type: ActionTypes.FETCH_TODOS_REQUEST }
-  | { type: ActionTypes.FETCH_TODOS_SUCCESS; payload: { todos: Todo[] } }
+  | {
+      type: ActionTypes.FETCH_TODOS_SUCCESS;
+      payload: { todoIds: number[]; todosById: Record<number, Todo> };
+    }
   | { type: ActionTypes.FETCH_TODOS_FAILURE }
   | { type: ActionTypes.TOGGLE_TODO };

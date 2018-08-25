@@ -3,12 +3,14 @@ import { ActionTypes, Action } from '../types/ActionTypes';
 import { Todo } from '../types/CommonTypes';
 
 export interface TodosState {
-  todos: Todo[];
+  todoIds: number[];
+  todosById: Record<number, Todo>;
   loading: boolean;
 }
 
 const initialState: TodosState = {
-  todos: [],
+  todoIds: [],
+  todosById: {},
   loading: true
 };
 
@@ -21,20 +23,26 @@ export const todosReducer: Reducer<TodosState, Action> = (
     case ActionTypes.FETCH_TODOS_FAILURE:
       return {
         ...state,
-        todos: [],
+        todoIds: [],
+        todosById: {},
         loading: true
       };
     case ActionTypes.FETCH_TODOS_SUCCESS:
       return {
         ...state,
-        todos: action.payload.todos,
+        todoIds: action.payload.todoIds,
+        todosById: action.payload.todosById,
         loading: false
       };
     case ActionTypes.ADD_TODO_SUCCESS:
-      /* TODO */
+      const { todo } = action.payload;
       return {
         ...state,
-        todos: [...state.todos, action.payload.todo]
+        todoIds: [...state.todoIds, todo.id],
+        todosById: {
+          ...state.todosById,
+          [todo.id]: todo
+        }
       };
     case ActionTypes.TOGGLE_TODO:
       /* TODO */
