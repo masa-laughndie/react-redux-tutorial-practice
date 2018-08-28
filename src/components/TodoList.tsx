@@ -12,6 +12,8 @@ interface State {
 }
 
 export class TodoList extends React.Component<Props, State> {
+  // 上記で State の型を指定しているが、以下で再度記述しないと、 title の」型推論による string 型指定となってしまう
+  // 今回の場合、もともと title: string なので問題ないが、 title: 'abc' で以下の State を消すと、 上記の <,State> との型の差異が生まれてエラーとなる
   public state: State = {
     title: ''
   };
@@ -50,7 +52,6 @@ export class TodoList extends React.Component<Props, State> {
   }
 
   private renderTodo(todo: Todo) {
-    console.log('A: ', todo);
     return <TodoItem key={todo.id} {...todo} />;
   }
 
