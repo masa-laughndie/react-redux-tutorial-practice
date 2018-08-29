@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Props, State } from '../containers/TodosContainer';
-import { TodoList } from './TodoList';
 import ControlPanel from './ControlPanel';
+import { TodoList } from './TodoList';
 
 export class Todos extends React.Component<Props, State> {
+  // ref で用いるプロパティはそのコンポーネント名かタグ名(ex: input)にする
   private todoList: TodoList | null = null;
 
   public componentDidMount() {
